@@ -15,7 +15,7 @@ import { Rules } from "@/app/ui/rules/rules";
 import { Inputs } from "@/app/types";
 
 export default function LoginForm() {
-    const { ...methods } = useForm<Inputs>({ resolver: yupResolver(loginFormSchema) });
+    const { ...methods } = useForm({ resolver: yupResolver(loginFormSchema) });
     const { touchedFields } = methods.formState;
     const keys = Object.keys(touchedFields);
     const disabled = keys.length === 0;
