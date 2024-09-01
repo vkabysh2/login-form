@@ -1,15 +1,17 @@
 import React from 'react';
 import {Rule} from "@/app/components";
 import {useFormContext} from "react-hook-form";
+import {Inputs} from "@/app/types";
+import {digitRegex, PASSWORD_FIELD, uppercaseRegex} from "@/app/constants";
 
 export const Rules = () => {
-    const { watch } = useFormContext();
-    const password = watch('password');
+    const { watch } = useFormContext<Inputs>();
+    const password = watch(PASSWORD_FIELD);
     const passwordPopulated = Boolean(password?.length);
 
     const inRange = password?.length > 8;
-    const hasDigit = /(?=.*\d)/.test(password);
-    const hasUppercase = /(?=.*[A-Z])/.test(password);
+    const hasDigit = digitRegex.test(password);
+    const hasUppercase = uppercaseRegex.test(password);
 
     return (
         <div className="rules">
