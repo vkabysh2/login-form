@@ -6,6 +6,7 @@ import { Button } from "@/app/components";
 import {
     useForm,
     FormProvider,
+    SubmitHandler,
 } from "react-hook-form";
 import { loginFormSchema } from "@/app/loginFormSchema";
 import { PasswordInput } from "@/app/ui/password-input/password-input";
@@ -14,7 +15,7 @@ import { Rules } from "@/app/ui/rules/rules";
 import { Inputs } from "@/app/types";
 
 export default function LoginForm() {
-    const { ...methods } = useForm({ resolver: yupResolver(loginFormSchema) });
+    const { ...methods } = useForm<Inputs>({ resolver: yupResolver(loginFormSchema) });
     const { touchedFields } = methods.formState;
     const keys = Object.keys(touchedFields);
     const disabled = keys.length === 0;
@@ -23,9 +24,7 @@ export default function LoginForm() {
         console.log(event);
     }
 
-    const onSubmit = (formData: Inputs) => {
-        console.log({ formData });
-    }
+    const onSubmit: SubmitHandler<Inputs> = (data: any) => console.log(data);
 
     return (
         <main className="main">
