@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {Input} from "@/app/components";
 import { useFormContext } from "react-hook-form";
 import styles from '@/app/components/input/input.module.css';
@@ -42,7 +42,7 @@ export const PasswordInput = () => {
         />
     );
 
-    const onChange = (event) => {
+    const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         const valueWithoutSpaces = value.replace(
             spaceRegex,
