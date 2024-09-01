@@ -12,9 +12,10 @@ import {
     uppercaseRegex,
 } from "@/app/constants";
 import clsx from "clsx";
+import {Inputs} from "@/app/types";
 
 export const PasswordInput = () => {
-    const { control, setValue, watch, formState: { errors } } = useFormContext();
+    const { control, setValue, watch, formState: { errors } } = useFormContext<Inputs>();
     const password = watch(PASSWORD_FIELD);
 
     const [passwordToggle, setPasswordToggle] = useState(false);
