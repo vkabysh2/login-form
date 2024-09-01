@@ -22,7 +22,7 @@ export function Input(props: InputProps) {
         type,
         placeholder,
         onChange,
-        control: { control },
+        control,
         success,
         hasErrors,
         endIcon,
