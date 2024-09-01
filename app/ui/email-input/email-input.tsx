@@ -1,6 +1,6 @@
 import React from 'react';
 import {Input} from "@/app/components";
-import {useFormContext} from "react-hook-form";
+import {useController, useFormContext} from "react-hook-form";
 import {EMAIL_FIELD, EMAIL_REGEX} from "@/app/constants";
 import {Inputs} from "@/app/types";
 

@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import styles from '@/app/components/input/input.module.css';
 import { ReactNode } from "react";
-import {FieldPath, FieldValues, useController, UseControllerProps} from "react-hook-form";
+import {useController} from "react-hook-form";
+import {Control} from "react-hook-form/dist/types/form";
+import {Inputs} from "@/app/types";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
-    control: UseControllerProps<FieldValues, FieldPath<FieldValues>>;
+    control: Control<Inputs>;
     endIcon?: ReactNode;
     success: boolean;
     hasErrors: boolean;
@@ -18,17 +20,17 @@ export function Input(props: InputProps) {
         type,
         placeholder,
         onChange,
-        control,
+        control: { control },
         success,
         hasErrors,
         endIcon,
         errorMessages,
     } = props;
 
-    const { field } = useController({
+    const { field } = useController<Inputs>({
         name,
         control,
-    });
+    } as any);
 
     return (
         <div>
