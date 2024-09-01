@@ -1,8 +1,9 @@
 import * as yup from "yup";
-import {digitRegex, EMAIL_REGEX, PASSWORD_REGEX, uppercaseRegex} from "@/app/constants";
+import {EMAIL_REGEX, PASSWORD_REGEX} from "@/app/constants";
+import {Inputs} from "@/app/types";
 
 export const loginFormSchema = yup
-    .object({
+    .object<Inputs>({
         email: yup.string().label('Email')
             .email()
             .matches(EMAIL_REGEX, 'Invalid email format')
@@ -11,15 +12,6 @@ export const loginFormSchema = yup
             .min(8)
             .max(64)
             .matches(PASSWORD_REGEX, 'Invalid password format')
-            .required()
-            .test(function (password) {
-                if (password) {
-                    if (8 < password?.length && password?.length < 64 && uppercaseRegex.test(password) && digitRegex.test(password)) {
-                        return true;
-                    }
-                }
-
-                return this.createError({ message: 'error in password '});
-            }),
+            .required(),
     })
     .required();

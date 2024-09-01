@@ -1,9 +1,5 @@
-import React from 'react';
-
-type IconProps = {
-    className: string,
-    onClick: () => void,
-}
+import React from "react";
+import {IconProps} from "@/app/types";
 
 export const ShowPasswordIcon = (props: IconProps) => {
     const { className, onClick } = props;

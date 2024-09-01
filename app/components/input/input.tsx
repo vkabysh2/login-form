@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 import styles from '@/app/components/input/input.module.css';
 import { ReactNode } from "react";
-import {Control, useController} from "react-hook-form";
+import {FieldPath, FieldValues, useController, UseControllerProps} from "react-hook-form";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    control: Control<Record<any, any>>;
+    name: string;
+    control: UseControllerProps<FieldValues, FieldPath<FieldValues>>;
     endIcon?: ReactNode;
     success: boolean;
     hasErrors: boolean;
@@ -24,9 +25,7 @@ export function Input(props: InputProps) {
         errorMessages,
     } = props;
 
-    const {
-        field,
-    } = useController({
+    const { field } = useController({
         name,
         control,
     });
