@@ -1,9 +1,11 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 import styles from '@/app/components/input/input.module.css';
 import { ReactNode } from "react";
-import {useController} from "react-hook-form";
-import {Control} from "react-hook-form/dist/types/form";
-import {Inputs} from "@/app/types";
+import {
+    Control,
+    useController,
+} from "react-hook-form";
+import { Inputs } from "@/app/types";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
