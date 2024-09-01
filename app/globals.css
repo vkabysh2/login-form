@@ -1,33 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+    --background-color: #fff;
+    --success-color: #27B274;
+    --error-color: #FF8080;
+    --error-background-color: #ED5F591A;
+    --plain-text-color: #151D51;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    --heading-text-size: 1.75rem;
+    --plain-text-size: 1rem;
+    --small-text-size: 0.8rem;
+
+    --font-normal-weight: 400;
+    --font-bold-weight: 700;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+html {
+    height: -webkit-fill-available;
+}
+
+.main {
+    background: linear-gradient(167.96deg, #F4F9FF 0%, #E0EDFB 100%);
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+input:-webkit-autofill {
+    box-shadow: inset 0 0 0 100px var(--background-color);
+}
+
+.sing_up {
+    font-size: var(--heading-text-size);
+    font-weight: var(--font-bold-weight);
+    line-height: 28px;
+    margin: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.main_form {
+    width: 315px;
+}
+
+.button_wrapper {
+    text-align: center;
+}
+
+.rules {
+    margin-bottom: 40px;
+    margin-left: 20px;
 }

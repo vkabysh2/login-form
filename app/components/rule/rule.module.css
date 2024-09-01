@@ -1,0 +1,15 @@
+.rule_message {
+    color: #4A4E71;
+    margin-bottom: 4px;
+    font-size: var(--small-text-size);
+    line-height: 18px;
+    font-weight: var(--font-normal-weight);
+}
+
+.invalid_message {
+    color: var(--error-color);
+}
+
+.valid_message {
+    color: var(--success-color);
+}
