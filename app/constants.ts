@@ -3,3 +3,8 @@ export const PASSWORD_FIELD = "password";
 
 export const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 export const PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*\d).{8,64}$/;
+
+export const digitRegex = /(?=.*\d)/;
+export const uppercaseRegex = /(?=.*[A-Z])/;
+
+export const spaceRegex = / /g;

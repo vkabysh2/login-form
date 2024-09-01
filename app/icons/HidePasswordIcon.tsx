@@ -1,5 +1,5 @@
 import React from "react";
-import {IconProps} from "@/app/types";
+import { IconProps } from "@/app/types";
 
 export const HidePasswordIcon = (props: IconProps) => {
     const { className, onClick } = props;

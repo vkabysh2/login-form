@@ -2,8 +2,15 @@ import React, {useState} from 'react';
 import {Input} from "@/app/components";
 import { useFormContext } from "react-hook-form";
 import styles from '@/app/components/input/input.module.css';
-import {HidePasswordIcon, ShowPasswordIcon} from "@/app/icons";
-import {PASSWORD_FIELD, PASSWORD_REGEX} from "@/app/constants";
+import {
+    HidePasswordIcon,
+    ShowPasswordIcon,
+} from "@/app/icons";
+import {
+    digitRegex,
+    PASSWORD_FIELD, spaceRegex,
+    uppercaseRegex,
+} from "@/app/constants";
 import clsx from "clsx";
 
 export const PasswordInput = () => {
@@ -13,8 +20,8 @@ export const PasswordInput = () => {
     const [passwordToggle, setPasswordToggle] = useState(false);
 
     const inRange = 8 < password?.length && password?.length < 64;
-    const hasDigit = /(?=.*\d)/.test(password);
-    const hasUppercase = /(?=.*[A-Z])/.test(password);
+    const hasDigit = digitRegex.test(password);
+    const hasUppercase = uppercaseRegex.test(password);
 
     const passwordPopulated = Boolean(password?.length);
     const passwordHasErrors = passwordPopulated && (!inRange || !hasDigit || !hasUppercase);
@@ -38,7 +45,7 @@ export const PasswordInput = () => {
     const onChange = (event) => {
         const value = event.target.value;
         const valueWithoutSpaces = value.replace(
-            / /g,
+            spaceRegex,
             ""
         );
 

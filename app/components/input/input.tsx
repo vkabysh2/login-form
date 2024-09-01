@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from '@/app/components/input/input.module.css';
+import styles from "@/app/components/input/input.module.css";
 import { ReactNode } from "react";
 import {
     Control,
