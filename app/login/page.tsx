@@ -1,5 +1,6 @@
 'use client';
 
+import { MouseEvent } from "react";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { Button } from "@/app/components";
 import {
@@ -17,7 +18,8 @@ export default function LoginForm() {
     const keys = Object.keys(touchedFields);
     const disabled = keys.length === 0;
 
-    const onSignUpClick = (event) => {
+    const onSignUpClick = (event: MouseEvent<HTMLButtonElement>) => {
+        console.log(event);
     }
 
     const onSubmit = (formData) => {
