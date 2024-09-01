@@ -22,7 +22,7 @@ export const EmailInput = () => {
             name={EMAIL_FIELD}
             placeholder="Enter your email"
             success={emailMatchesPattern}
-            hasErrors={emailHasErrors && email?.length}
+            hasErrors={emailHasErrors && Boolean(email?.length)}
             errorMessages={emailHasErrors && errorMessages}
         />
     );
