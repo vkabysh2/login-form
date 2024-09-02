@@ -7,6 +7,7 @@ import {
     useForm,
     FormProvider,
 } from "react-hook-form";
+import Image from 'next/image';
 import { loginFormSchema } from "@/app/loginFormSchema";
 import { PasswordInput } from "@/app/ui/password-input/password-input";
 import { EmailInput } from "@/app/ui/email-input/email-input";
@@ -25,28 +26,30 @@ export default function LoginForm() {
     const onSubmit = (data: any) => console.log(data);
 
     return (
-        <main className="main">
-            <FormProvider {...methods}>
-                <form className="main_form" onSubmit={methods.handleSubmit(onSubmit)}>
-                    <h1 className="sing_up">
-                        Sign up
-                    </h1>
-                    <div className="">
-                        <EmailInput />
-                        <PasswordInput />
-                    </div>
-                    <Rules />
-                    <div className="button_wrapper">
-                        <Button
-                            onClick={onSignUpClick}
-                            type="submit"
-                            disabled={disabled}
-                        >
+        <>
+            <main className="main">
+                <FormProvider {...methods}>
+                    <form className="main_form" onSubmit={methods.handleSubmit(onSubmit)}>
+                        <h1 className="sing_up">
                             Sign up
-                        </Button>
-                    </div>
-                </form>
-            </FormProvider>
-        </main>
+                        </h1>
+                        <div className="">
+                            <EmailInput />
+                            <PasswordInput />
+                        </div>
+                        <Rules />
+                        <div className="button_wrapper">
+                            <Button
+                                onClick={onSignUpClick}
+                                type="submit"
+                                disabled={disabled}
+                            >
+                                Sign up
+                            </Button>
+                        </div>
+                    </form>
+                </FormProvider>
+            </main>
+        </>
     );
 }
