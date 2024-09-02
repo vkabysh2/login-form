@@ -7,7 +7,6 @@ import {
     useForm,
     FormProvider,
 } from "react-hook-form";
-import Image from 'next/image';
 import { loginFormSchema } from "@/app/loginFormSchema";
 import { PasswordInput } from "@/app/ui/password-input/password-input";
 import { EmailInput } from "@/app/ui/email-input/email-input";
